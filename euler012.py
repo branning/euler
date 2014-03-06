@@ -22,6 +22,11 @@ def prime_factorize(n, primes=None):
     return prime_factors
 
 if __name__=="__main__":
+'''
+TODO: memoization to improve performane
+'''
+    debugging = False
+
     limit = 100000
     primes = eratosthenes(limit)
     for i,t in enumerate(triangle_numbers(limit)):
@@ -31,5 +36,8 @@ if __name__=="__main__":
         for f in factors.keys():
             divisors *= factors[f] + 1
         if divisors > 500:
-            print "Triangle number {} is {} and has factors {} and therefore {} divisors".format(i, t, factors, divisors)
+            if debugging:
+                print "Triangle number {} is {} and has factors {} and therefore {} divisors".format(i, t, factors, divisors)
+            else:
+                print t
             break
