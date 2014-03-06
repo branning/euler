@@ -103,8 +103,6 @@ numbers_str = ["37107287533902102798797998220837590246510135740250",
 
 
 
-import pdb; pdb.set_trace()
-
 def sum_str(numbers):
 
     sum_str = []
@@ -121,7 +119,12 @@ def sum_str(numbers):
     sum_str.reverse()
     return sum_str
 
-total = sum_str(numbers_str)
-print ''.join(total)
-n = 10
-print "first {} characters: {}".format(n, ''.join(total[0:10]))
+if __name__=="__main__":
+    debugging = False
+    n = 10
+    total = sum_str(numbers_str)
+    if debugging:
+        print ''.join(total)
+        print "first {} characters: {}".format(n, ''.join(total[0:10]))
+    else:
+        print ''.join(total[0:10])
