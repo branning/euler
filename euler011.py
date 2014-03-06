@@ -96,11 +96,14 @@ for row in range(0, rows):
                 position = begin
                 direction = 'up-right'
 
-checked = rights + downs + up_rights + down_rights
-for dir,count in zip(('right','down','up-right','down-right'),(rights,downs,up_rights,down_rights)):
-    print "{} {}".format(dir, count)
+debugging = False
 
-print "Checked {} strings of {} integers".format(checked, window)
-print "Largest product found {}, starting at {},{} in the {} direction".format(max_product, position % 20, position / 20, direction)
+if debugging:
+    checked = rights + downs + up_rights + down_rights
+    for dir,count in zip(('right','down','up-right','down-right'),(rights,downs,up_rights,down_rights)):
+        print "{} {}".format(dir, count)
+    print "Checked {} strings of {} integers".format(checked, window)
+    print "Largest product found {}, starting at {},{} in the {} direction".format(max_product, position % 20, position / 20, direction)
 
+print max_product
 
