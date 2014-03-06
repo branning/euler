@@ -23,10 +23,12 @@ number_str = ("73167176531330624919225119674426574742355349194934"
             "71636269561882670428252483600823257530420752963450")
 numbers = [int(s) for s in number_str]
 
-window = 5 # consecutive numbers to consider
-max_product = 0
-max_start = -1
-for r in xrange(0, len(numbers) - window):
-    window_product = reduce(lambda x,y: x*y, numbers[r:r+window])
-    (max_product,max_start) = (window_product,r) if window_product > max_product else (max_product,max_start)
-print "Maximum product start at {}: {} = {}".format(max_start, max_product, numbers[max_start : max_start+window])
+if __name__=="__main__":
+    window = 5 # consecutive numbers to consider
+    max_product = 0
+    max_start = -1
+    for r in xrange(0, len(numbers) - window):
+        window_product = reduce(lambda x,y: x*y, numbers[r:r+window])
+        (max_product,max_start) = (window_product,r) if window_product > max_product else (max_product,max_start)
+#    print "Maximum product start at {}: {} = {}".format(max_start, max_product, numbers[max_start : max_start+window])
+    print max_product
