@@ -3,7 +3,6 @@
 import time
 
 if __name__=="__main__":
-    print "euler002"
     start = time.time()
     count = 0
     a, b = 1, 2
