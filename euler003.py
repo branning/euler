@@ -30,15 +30,19 @@ def run(number):
     while True:
         factor = rho(a)
         if factor is None:
-            print "rho failed for {}".format(a)
+#            print "rho failed for {}".format(a)
             primes.append(a)
             break
         else:
             factors.append(factor)
             a = a / factor
 
-    print "Prime? factors of {}: {}".format(number, primes)
-    print "Factors of {}: {}".format(number, factors)
+    # I was sort of finding the answer by trial and error here
+    # The variable names are bad.  I hypothesized that the prime factors
+    # would be the correct answer.  Looks like that's true?
+#    print "Prime? factors of {}: {}".format(number, primes)
+#    print "Factors of {}: {}".format(number, factors)
+    print primes[0]
 
 if __name__=="__main__":
     number = 600851475143
