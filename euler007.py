@@ -64,3 +64,6 @@ def eratosthenes(limit):
             primes.append(i)
 
     return primes
+
+if __name__=="__main__":
+    print eratosthenes(10**6)[10000]
