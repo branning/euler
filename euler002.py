@@ -18,4 +18,4 @@ if __name__=="__main__":
         if c % 2 == 0:
             sum += c
         a, b = b, c
-    print sum, time.time() - start
+    print sum
