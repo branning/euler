@@ -38,3 +38,6 @@ def range_LCM(n):
     for f in common_factors:
         common_multiple *= f ** common_factors[f]
     return common_multiple
+
+if __name__=="__main__":
+    print range_LCM(20)
