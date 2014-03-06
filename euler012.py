@@ -22,9 +22,9 @@ def prime_factorize(n, primes=None):
     return prime_factors
 
 if __name__=="__main__":
-'''
-TODO: memoization to improve performane
-'''
+    '''
+    TODO: can improve performance?
+    '''
     debugging = False
 
     limit = 100000
