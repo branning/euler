@@ -5,6 +5,7 @@ Run all the solutions for which we know the ansewr, and check them.
 '''
 
 import subprocess
+import time
 
 answer = { 1 : 233168,
            2 : 4613732,
@@ -28,14 +29,16 @@ answer = { 1 : 233168,
           21 : 31626
 }
 
-#import pdb; pdb.set_trace()
-
+teststart = time.time()
 for problem in answer.keys():
+    start = time.time()
     filename = 'euler' + str(problem).zfill(3) + '.py'
     print "{} ...".format(filename),
     result = subprocess.check_output(['python',filename])
-    result = int(result.strip())
+    result = int(result.strip()) # clean it up
     if result != answer[problem]:
-        print "failed! Expected {}, got {}".format(answer[problem], result)
+        print "failed! Expected {}, got {}".format(answer[problem], result),
     else:
-        print u'\u221a'
+        print u'\u221a', # radical checkmark
+    print "{0:.2f} s".format(time.time() - start)
+print "{0:.0f} s total".format(time.time() - teststart)
