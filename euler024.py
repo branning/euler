@@ -32,4 +32,4 @@ if __name__=="__main__":
     nextperm(s)
     if debugging:
       print s
-  print s
+  print ''.join([str(n) for n in s])
