@@ -53,7 +53,7 @@ def divisors(n, primes=None):
     divisors.sort()
     return divisors
 
-def proper_divisors(n, primes=None):
+def proper_divisors(n, primes):
   return divisors(n, primes)[:-1]
 
 if __name__=="__main__":
