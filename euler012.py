@@ -13,7 +13,7 @@ def triangle_numbers(limit):
 
 def prime_factorize(n, primes=None):
     if primes is None:
-        primes = eratosthenes(n/2)
+        primes = eratosthenes(n)
     factors = factorize(n, primes)
     prime_factors = {}
     for f in factors:

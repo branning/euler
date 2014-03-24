@@ -2,7 +2,9 @@
 
 from euler007 import eratosthenes
 
-def factorize(n, primes):
+def factorize(n, primes=None):
+    if primes is None:
+        primes = eratosthenes(n)
     if n in primes:
         return [n]
     factors = []
@@ -23,9 +25,11 @@ def factorize_range(limit, primes):
         factors[n] = factorize(n, primes)
     return factors
 
-def range_LCM(n):
-    primes = eratosthenes(n)
-    factors = factorize_range(n, primes)
+def LCM(numbers):
+    primes = eratosthenes(max(numbers))
+    factors = {}
+    for n in numbers:
+        factors[n] = factorize(n, primes)    
     common_factors = {}
     for n in factors.keys():
         for f in set(factors[n]):
@@ -40,4 +44,5 @@ def range_LCM(n):
     return common_multiple
 
 if __name__=="__main__":
-    print range_LCM(20)
+    limit = 20
+    print LCM(range(2,limit+1))
