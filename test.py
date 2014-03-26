@@ -39,7 +39,8 @@ answer = { 1 : 233168,
           30 : 443839,
           31 : 73682,
           32 : 45228,
-          33 : 100
+          33 : 100,
+          34 : 40730
 }
 
 # Put individual problems as arguments to run selectively
