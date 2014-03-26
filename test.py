@@ -40,7 +40,9 @@ answer = { 1 : 233168,
           31 : 73682,
           32 : 45228,
           33 : 100,
-          34 : 40730
+          34 : 40730,
+          35 : 55,
+          36 : 872187
 }
 
 # Put individual problems as arguments to run selectively
@@ -51,6 +53,9 @@ else:
 
 teststart = time.time()
 for problem in problems:
+    if not problem in answer:
+      print "Cannot test {}, we don't have an answer yet".format(problem)
+      continue
     start = time.time()
     filename = 'euler' + str(problem).zfill(3) + '.py'
     print "{} ...".format(filename),
