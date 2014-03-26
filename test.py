@@ -5,6 +5,7 @@ Run all the solutions for which we know the ansewr, and check them.
 '''
 
 import subprocess
+import sys
 import time
 
 answer = { 1 : 233168,
@@ -37,11 +38,18 @@ answer = { 1 : 233168,
           29 : 9183,
           30 : 443839,
           31 : 73682,
+          32 : 45228,
           33 : 100
 }
 
+# Put individual problems as arguments to run selectively
+if len(sys.argv) > 1: # arg0 is script name
+  problems = [int(a) for a in sys.argv[1:]]
+else:
+  problems = answer.keys()
+
 teststart = time.time()
-for problem in answer.keys():
+for problem in problems:
     start = time.time()
     filename = 'euler' + str(problem).zfill(3) + '.py'
     print "{} ...".format(filename),
