@@ -35,9 +35,21 @@ def stirling2(a):
         subsets.append((left,right))
     return subsets
 
+def euclid_pythagorean_triplet(m, n):
+    # m > n
+    # m and n must be coprime
+    # one of {m,n} must be even
+    a = m**2 - n**2
+    b = 2*m*n
+    c = m**2 + n**2
+    return (a,b,c)
+
+def invert_triple(a,b,c):
+    # find m, n, and k that generate a triplet
+    pass
 
 
-def euclid_pythagorean_triples(limit=100):
+def euclid_pythagorean_triplet(limit=100):
 
     return "This is unfinished!"
     primes = eratosthenes(limit)
@@ -60,3 +72,23 @@ def findabc():
     pythagorus = lambda a,b,c: a*a + b*b - c*c == 0
 
 ########## UNFINISHED
+
+# I did this by hand, eventually
+# Using the Euclid formulas for generating a Pythagorean triple, and the constraint
+# of the problem, a + b + c = 1000
+# a = m**2 - n**2
+# b = 2*m*n
+# c = m**2 + n**2
+# So, m**2 - n**2 + 2*m*n + m**2 + n**2 = 1000
+# combine m**2, cancel n**2
+# 2*m(m+n) = 1000
+# m*(m+n) = 500
+# Guess checked this.  Sqrt(500) = 22.+, needed to split this into a perfect square
+# and a product of the square's factor and another number
+# Tried m=20, m**2 = 400.  (500-400) / 20 = 5
+# So, m=20, n=5
+# a = 20**2 - 5**2 = 375
+# b = 2*20*5 = 200
+# c = 20**2 + 5**2 = 425
+# 375 + 200 + 425 == 1000
+print 375*200*425
