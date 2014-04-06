@@ -47,8 +47,9 @@ answer = { 1 : 233168,
           37 : 748317,
           38 : 932718654,
           40 : 210,
-          42 : 162
-          
+          42 : 162,
+          43 : 16695334890
+
 }
 
 # Put individual problems as arguments to run selectively
