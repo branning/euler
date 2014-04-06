@@ -5,7 +5,7 @@ import math
 def pentagon(n):
   return n*(3*n-1)/2
 def inv_pentagon(n):
-  return (1+math.sqrt(24*n+1))/6
+  return (1+math.sqrt(24*n+1)) % 6 == 0
 
 if __name__=="__main__":
   pents = set()
@@ -18,8 +18,7 @@ if __name__=="__main__":
     for p in pents:
       diff = next-p
       total = next+p
-      if inv_pentagon(diff) == math.floor(inv_pentagon(diff)) and \
-         inv_pentagon(total) == math.floor(inv_pentagon(total)):
+      if inv_pentagon(diff) and inv_pentagon(total):
         pent_pairs.append((next,p))
         stop = True
     pents.add(next)
