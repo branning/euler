@@ -49,19 +49,18 @@ def eratosthenes(limit):
 
     # seed the sieve by removing multiples of 2 and 3
     primes = [2,3]
+    anchor = 5
+
     for x in primes:
         is_prime[x+x : limit + 1: x] = [False] * len(xrange(x+x, limit + 1, x))
 
-    for i in xrange(5, limit + 1):
+    for i in xrange(anchor, limit + 1):
         if not is_prime[i]:
             continue
         is_prime[i + i: limit + 1: i] = [False] * len(xrange(i+i, limit + 1, i))
-        if i**2 > limit:
-            break
-
-    for i in xrange(5, limit + 1):
-        if is_prime[i]:
-            primes.append(i)
+        primes.append(i)
+        #if i**2 > limit:
+        #    break
 
     return primes
 
