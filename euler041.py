@@ -2,6 +2,10 @@
 
 from euler007 import eratosthenes
 import itertools
+from math import sqrt, ceil
+
+def millerrabin(n):
+  return rabinmiller(n)
 
 def rabinmiller(n):
   limit = 341550071728321
@@ -30,24 +34,36 @@ def rabinmiller(n):
         return False # the number is composite
   return True
 
-# check a bunch of low primes first
-primes = eratosthenes(10**4)
+def isPrime(n, lowprimes=None):
+  prime_ceiling = 10**6
+  limit = int(ceil(sqrt(n))) # the highest of the "low primes"
+  if lowprimes is None:
+    lowprimes = eratosthenes( min(prime_ceiling, limit) )
+  # if the number is too large to check by generating primes,
+  # use the Miller-Rabin primality test
+  useRabinMiller = True if limit > prime_ceiling else False
 
-digits = list('987654321')
-while len(digits) > 2:
-  for d in itertools.permutations(digits):
-    n = int(''.join(d))
-    prime = True
-    for p in primes:
-      if n % p == 0:
-        prime = False
-        break
-    if not prime:
-      #print "not {}".format(n)
-      continue
-    #print "trying Rabin Miller on {}".format(n)
-    if rabinmiller(n):
-      print n
-      digits = []
+  prime = True
+  for p in primes: # check a bunch of low primes first
+    if n % p == 0:
+      prime = False
       break
-  digits = digits[1:]
+  else: # none of the primes divided n
+    if useRabinMiller: # and our number is large
+      print "trying Rabin Miller on {}".format(n)
+      prime = rabinmiller(n)
+  return prime
+
+
+if __name__=="__main__":
+  limit = 7654321
+  digits = list(str(limit))
+  primes = eratosthenes(int(ceil(sqrt(limit))))
+  while len(digits) > 2:
+    for d in itertools.permutations(digits):
+      n = int(''.join(d))
+      if isPrime(n):
+        print n
+        digits = [] # stop while loop
+        break
+    digits = digits[1:]
