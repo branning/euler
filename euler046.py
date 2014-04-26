@@ -17,7 +17,7 @@ limit = 10**5
 primes = eratosthenes(limit)
 
 odd_composites = set(range(9,limit+1,2)) # start with 9
-odd_composites -= primes_set # remove primes
+odd_composites -= set(primes) # remove primes
 odd_composites = list(odd_composites) # listify
 odd_composites.sort()
 
