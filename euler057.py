@@ -24,6 +24,7 @@ def continued_fraction(n):
   # seed the last term with a denominator of 1
   #n[-1] = (n[-1],1)
   num, den = reduce(proper, reversed(n[:-1] + [[n[-1],1]] ))
+  num, den = reduce_fraction(num,den)
 
   return num,den
 
@@ -35,7 +36,6 @@ if __name__=="__main__":
   for i in range(iterations):
     a.append(2)
     num,den = continued_fraction(a)
-    num, den = reduce_fraction(num,den)
     # See if there are more digits in numberator than denominator
     if ceil(log10(num)) > ceil(log10(den)):
       num_greater += 1
