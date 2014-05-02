@@ -2,9 +2,10 @@
 
 from euler007 import eratosthenes
 from euler012 import proper_divisors
+from math import sqrt, ceil
 
 def MakeAbundant(limit=28123):
-  primes = eratosthenes(limit)
+  primes = eratosthenes(int(ceil(sqrt(limit))))
   abundant_numbers = set()
   for i in range(12,limit+1):
     if sum(proper_divisors(i, primes)) > i:
