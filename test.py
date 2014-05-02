@@ -62,6 +62,7 @@ answer = { 1 : 233168,
           54 : 376,
           55 : 249,
           56 : 972,
+          57 : 153,
 }
 
 # Put individual problems as arguments to run selectively
