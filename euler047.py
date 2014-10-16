@@ -5,8 +5,6 @@ from euler012 import prime_factorize
 
 primes = eratosthenes(10**6)
 
-import pdb; pdb.set_trace()
-
 therun = []
 limit = 10**6
 start = 646 # the 3-run example ends here
