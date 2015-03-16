@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-namefile = open('names.txt')
+namefile = open('data/names.txt')
 
 def namesum(name):
   capA = ord('A')

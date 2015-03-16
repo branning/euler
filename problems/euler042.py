@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-fname = "words.txt"
+fname = "data/words.txt"
 words = {}
 max_value = 0
 with open(fname, 'r') as f:

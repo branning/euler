@@ -63,7 +63,7 @@ def score(hand):
 
 wins = [] # either A or B
 
-with open('poker.txt', 'r') as input:
+with open('data/poker.txt', 'r') as input:
   for line in input:
     allcards = line.strip().split(' ')
     handA = [(cards[c[0]],c[1]) for c in allcards[:5]]

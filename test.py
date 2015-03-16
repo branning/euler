@@ -4,6 +4,7 @@
 Run all the solutions for which we know the ansewr, and check them.
 '''
 
+import os.path
 import subprocess
 import sys
 import time
@@ -65,25 +66,27 @@ answer = { 1 : 233168,
           57 : 153,
 }
 
-# Put individual problems as arguments to run selectively
-if len(sys.argv) > 1: # arg0 is script name
-  problems = [int(a) for a in sys.argv[1:]]
-else:
-  problems = answer.keys()
-
-teststart = time.time()
-for problem in problems:
-    if not problem in answer:
-      print "Cannot test {}, we don't have an answer yet".format(problem)
-      continue
-    start = time.time()
-    filename = 'euler' + str(problem).zfill(3) + '.py'
-    print "{} ...".format(filename),
-    result = subprocess.check_output(['python',filename])
-    result = int(result.strip()) # clean it up
-    if result != answer[problem]:
-        print "failed! Expected {}, got {}".format(answer[problem], result),
+if __name__=="__main__":
+    # Put individual problems as arguments to run selectively
+    if len(sys.argv) > 1: # arg0 is script name
+      problems = [int(a) for a in sys.argv[1:]]
     else:
-        print u'\u221a', # radical checkmark
-    print "{0:.2f} s".format(time.time() - start)
-print "{0:.0f} s total".format(time.time() - teststart)
+      problems = answer.keys()
+
+    teststart = time.time()
+    for problem in problems:
+        if problem not in answer:
+          print "Cannot test {}, we don't have an answer yet".format(problem)
+          continue
+        start = time.time()
+        filename = 'euler' + str(problem).zfill(3) + '.py'
+        filename = os.path.join("problems", filename)
+        print "{} ...".format(filename),
+        result = subprocess.check_output(['python',filename])
+        result = int(result.strip()) # clean it up
+        if result != answer[problem]:
+            print "failed! Expected {}, got {}".format(answer[problem], result),
+        else:
+            print u'\u221a', # radical checkmark
+        print "{0:.2f} s".format(time.time() - start)
+    print "{0:.0f} s total".format(time.time() - teststart)
