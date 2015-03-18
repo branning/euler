@@ -35,7 +35,7 @@ if __name__=="__main__":
         if bcrypt.hashpw(result, answers[problem]) != answers[problem]:
             print "failed! Proposed answer {} doesn't match hashed answer".format(answers[problem], result),
         else:
-            print u'\u221a', # radical checkmark
+            print u'\u221a'.encode('utf-8'), # radical checkmark
         print "{0:.2f} s".format(time.time() - start)
     print "{0:.0f} s total".format(time.time() - teststart)
 
