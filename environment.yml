@@ -1,0 +1,5 @@
+name: euler
+channels:
+- auto
+dependencies:
+- bcrypt
